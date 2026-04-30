@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rekomendasi Kost Pasuruan 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+  :root {
+    --bg:#0d1117;--surface:#161b22;--surface2:#1c2330;--border:#30363d;
+    --a1:#58a6ff;--a2:#3fb950;--a3:#f78166;--a4:#e3b341;
+    --text:#e6edf3;--muted:#8b949e;--dim:#484f58;
+    --putra-bg:rgba(88,166,255,.1);--putra-b:rgba(88,166,255,.35);--putra-t:#58a6ff;
+    --putri-bg:rgba(255,121,198,.1);--putri-b:rgba(255,121,198,.35);--putri-t:#ff79c6;
+    --campur-bg:rgba(63,185,80,.1);--campur-b:rgba(63,185,80,.35);--campur-t:#3fb950;
+    --pasutri-bg:rgba(227,179,65,.1);--pasutri-b:rgba(227,179,65,.35);--pasutri-t:#e3b341;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.65}
+  a{color:var(--a1);text-decoration:none}a:hover{text-decoration:underline}
+
+  /* ── HEADER ── */
+  .hdr{background:linear-gradient(160deg,#0d1117,#111820 60%,#131c2b);border-bottom:1px solid var(--border);padding:20px 20px 14px;position:sticky;top:0;z-index:100;backdrop-filter:blur(8px)}
+  .hdr-top{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+  .hdr-icon{width:36px;height:36px;background:linear-gradient(135deg,#1f6feb,#58a6ff);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+  .hdr-title{font-size:18px;font-weight:600}
+  .hdr-sub{font-size:11px;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:2px}
+  .tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{background:none;border:1px solid transparent;border-radius:6px;color:var(--muted);cursor:pointer;font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;font-weight:500;padding:6px 13px;white-space:nowrap;transition:.15s}
+  .tab:hover{color:var(--text);background:var(--surface2)}
+  .tab.on{color:var(--a1);border-color:var(--a1);background:rgba(88,166,255,.1)}
+
+  /* ── DISCLAIMER ── */
+  .disc{margin:11px 20px 0;padding:9px 13px;background:rgba(227,179,65,.07);border:1px solid rgba(227,179,65,.22);border-radius:6px;font-size:11.5px;color:#c9a227;display:flex;gap:8px}
+
+  /* ── PANELS ── */
+  .panel{display:none;padding:16px 20px 48px}
+  .panel.on{display:block}
+
+  /* ── AREA HEADER ── */
+  .area-hdr{margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid var(--border)}
+  .area-title{font-size:15px;font-weight:600}
+  .area-meta{font-size:11px;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:3px}
+
+  /* ── LEGEND BAR ── */
+  .legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .leg{font-size:10.5px;padding:3px 9px;border-radius:20px;border:1px solid;font-weight:600}
+  .leg-putra{background:var(--putra-bg);border-color:var(--putra-b);color:var(--putra-t)}
+  .leg-putri{background:var(--putri-bg);border-color:var(--putri-b);color:var(--putri-t)}
+  .leg-campur{background:var(--campur-bg);border-color:var(--campur-b);color:var(--campur-t)}
+  .leg-pasutri{background:var(--pasutri-bg);border-color:var(--pasutri-b);color:var(--pasutri-t)}
+
+  /* ── CARD ── */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:13px;overflow:hidden;transition:border-color .15s}
+  .card:hover{border-color:#3d444d}
+  .card.open{border-color:#444c56}
+  .card-hdr{padding:13px 14px 11px;display:flex;align-items:flex-start;gap:10px;cursor:pointer;user-select:none}
+  .card-num{width:22px;height:22px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);flex-shrink:0;margin-top:2px}
+  .card-ta{flex:1;min-width:0}
+  .card-nr{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-bottom:5px}
+  .card-name{font-size:14px;font-weight:600}
+  .tipe{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px;border:1px solid;flex-shrink:0}
+  .tp{background:var(--putra-bg);border-color:var(--putra-b);color:var(--putra-t)}
+  .tt{background:var(--putri-bg);border-color:var(--putri-b);color:var(--putri-t)}
+  .tc{background:var(--campur-bg);border-color:var(--campur-b);color:var(--campur-t)}
+  .tps{background:var(--pasutri-bg);border-color:var(--pasutri-b);color:var(--pasutri-t)}
+  .bsm{font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;border:1px solid;flex-shrink:0}
+  .bbud{background:rgba(63,185,80,.12);color:var(--a2);border-color:rgba(63,185,80,.3)}
+  .bprem{background:rgba(88,166,255,.12);color:var(--a1);border-color:rgba(88,166,255,.3)}
+  .card-sub{font-size:11px;color:var(--muted)}
+  .card-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0}
+  .card-price{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:var(--a4);white-space:nowrap}
+  .chevron{color:var(--dim);font-size:11px;transition:transform .2s}
+  .card.open .chevron{transform:rotate(180deg)}
+  .card-body{display:none;padding:0 14px 16px;border-top:1px solid var(--border)}
+  .card.open .card-body{display:block}
+
+  /* ── CHIPS ── */
+  .chips{display:flex;gap:5px;flex-wrap:wrap;padding:10px 0 12px;border-bottom:1px solid var(--border);margin-bottom:12px}
+  .chip{font-size:10.5px;padding:3px 8px;border-radius:20px;border:1px solid var(--border);background:var(--surface2);color:var(--muted)}
+  .con{background:rgba(63,185,80,.09);border-color:rgba(63,185,80,.28);color:#3fb950}
+  .cof{background:rgba(247,129,102,.08);border-color:rgba(247,129,102,.25);color:#c97060;text-decoration:line-through;opacity:.75}
+
+  /* ── INFO GRID ── */
+  .igrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+  .ib{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:9px 11px}
+  .ibl{font-size:9.5px;text-transform:uppercase;letter-spacing:.9px;color:var(--dim);margin-bottom:3px;font-family:'IBM Plex Mono',monospace}
+  .ibv{font-size:12.5px;color:var(--text);font-weight:500}
+
+  /* ── SECTION LABEL ── */
+  .sl{font-size:10px;text-transform:uppercase;letter-spacing:.9px;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-bottom:7px;font-weight:600}
+
+  /* ── FASI PILLS ── */
+  .fpills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+  .fp{font-size:11.5px;padding:3px 9px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;color:var(--muted)}
+
+  /* ── PLUS / MINUS ── */
+  .pmg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+  .pmb{border-radius:6px;padding:10px 11px}
+  .pp{background:rgba(63,185,80,.06);border:1px solid rgba(63,185,80,.18)}
+  .pm{background:rgba(247,129,102,.06);border:1px solid rgba(247,129,102,.18)}
+  .pmt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-family:'IBM Plex Mono',monospace;margin-bottom:6px}
+  .pp .pmt{color:#3fb950}.pm .pmt{color:#f78166}
+  .pmi{font-size:11.5px;color:var(--muted);line-height:1.55;margin-bottom:3px;display:flex;gap:5px}
+  .pp .pmi::before{content:'✓';color:#3fb950;flex-shrink:0}
+  .pm .pmi::before{content:'✗';color:#f78166;flex-shrink:0}
+
+  /* ── CONTACT BLOCK ── */
+  .cblk{background:rgba(88,166,255,.05);border:1px solid rgba(88,166,255,.14);border-radius:7px;padding:10px 12px;margin-bottom:10px}
+  .cblk-title{font-size:9.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-bottom:8px}
+  .crow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:5px}
+  .crow:last-child{margin-bottom:0}
+  .ci{font-size:13px;flex-shrink:0}
+  .cl{font-size:10.5px;color:var(--muted);min-width:55px}
+  .cv{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--a1);font-weight:600}
+  .cn{font-size:11px;color:var(--muted);margin-left:auto}
+
+  /* ── LINK BUTTONS ── */
+  .lrow{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+  .lbtn{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;padding:5px 11px;border-radius:5px;border:1px solid;text-decoration:none;font-weight:500;transition:opacity .15s;cursor:pointer}
+  .lbtn:hover{opacity:.8;text-decoration:none}
+  .lgm{background:rgba(52,168,83,.1);border-color:rgba(52,168,83,.35);color:#34a853}
+  .lls{background:rgba(88,166,255,.1);border-color:rgba(88,166,255,.3);color:#58a6ff}
+  .lwa{background:rgba(37,211,102,.1);border-color:rgba(37,211,102,.3);color:#25d166}
+  .lna{background:var(--surface2);border-color:var(--border);color:var(--muted);opacity:.5;cursor:default}
+
+  /* ── NOTE BOX ── */
+  .note{padding:8px 11px;border-radius:6px;font-size:11px;margin-top:8px}
+  .warn{background:rgba(227,179,65,.06);border:1px solid rgba(227,179,65,.2);color:#c9a227}
+  .info{background:rgba(88,166,255,.06);border:1px solid rgba(88,166,255,.2);color:#58a6ff}
+  .danger{background:rgba(247,129,102,.07);border:1px solid rgba(247,129,102,.2);color:#c97060}
+
+  /* ── SOURCE TAG ── */
+  .src{font-size:10px;color:var(--dim);font-family:'IBM Plex Mono',monospace;margin-top:6px}
+
+  /* ── PURWODADI TIPS ── */
+  .ptips{padding:16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:12.5px;line-height:1.8;color:var(--muted)}
+  .ptips strong{color:var(--text)}
+  .ptips ol{margin-left:20px}
+  .ptips li{margin-bottom:5px}
+
+  @media(max-width:520px){
+    .hdr{padding:14px 13px 12px}
+    .panel{padding:14px 12px 36px}
+    .igrid,.pmg{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<div class="hdr">
+  <div class="hdr-top">
+    <div class="hdr-icon">🏠</div>
+    <div>
+      <div class="hdr-title">Rekomendasi Kost Pasuruan 2026</div>
+      <div class="hdr-sub">Revisi Mei 2026 · sewakost.com · infokost.id · 99.co · semuabis.com · cbn-indonesia.com</div>
+    </div>
+  </div>
+  <div class="tabs">
+    <button class="tab on" onclick="sw(this,'b1')">🏥 RSUD Bangil</button>
+    <button class="tab" onclick="sw(this,'b2')">🏥 PKM Pandaan</button>
+    <button class="tab" onclick="sw(this,'b3')">🏥 PKM Purwodadi</button>
+  </div>
+</div>
+<div class="disc">
+  <span>⚠️</span>
+  <span>Data dari platform listing publik per Mei 2026. Harga & ketersediaan bisa berubah — <strong>wajib konfirmasi via WA/telp sebelum survey fisik.</strong> Link GMaps dibuat dari koordinat/alamat listing — validasi sebelum berangkat. 🟦 Putra &nbsp;|&nbsp; 🩷 Putri &nbsp;|&nbsp; 🟩 Campur &nbsp;|&nbsp; 🟡 Pasutri/Keluarga</span>
+</div>
+
+<!-- ═══════════════════════════════════
+     TAB 1 — RSUD BANGIL
+═══════════════════════════════════════ -->
+<div id="b1" class="panel on">
+  <div class="area-hdr">
+    <div class="area-title">Sekitar RSUD Bangil, Pasuruan</div>
+    <div class="area-meta">📍 Jl. Raya Raci KM-9, Bangil, Kab. Pasuruan &nbsp;·&nbsp; RS Kelas B, Akreditasi Paripurna ⭐⭐⭐⭐⭐ &nbsp;·&nbsp; Kapasitas ±300 TT</div>
+  </div>
+  <div class="legend">
+    <span class="leg leg-putri">🩷 Kost Putri</span>
+    <span class="leg leg-campur">🟩 Kost Campur</span>
+    <span class="leg leg-putra">🟦 Kost Putra</span>
+    <span class="leg leg-pasutri">🟡 Pasutri/Keluarga</span>
+  </div>
+
+  <!-- CARD 1 — Abah Kost Pier -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">1</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Abah Kost Pier</span>
+          <span class="tipe tt">🩷 Putri</span>
+          <span class="bsm bbud">Budget</span>
+        </div>
+        <div class="card-sub">Raci Krajen RT.04/03, Desa Raci, Kec. Bangil &nbsp;·&nbsp; Depan Hotel Dalwa &nbsp;·&nbsp; sebelah timur Gerbang PIER &nbsp;·&nbsp; <strong>±300m dari RSUD</strong></div>
+      </div>
+      <div class="card-right"><span class="card-price">Rp 350.000/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip cof">No AC</span><span class="chip con">✓ WiFi Gratis</span>
+        <span class="chip con">✓ KM Dalam</span><span class="chip con">✓ Parkir Motor</span>
+        <span class="chip con">✓ Parkir Mobil</span><span class="chip">🩷 Putri Only</span>
+        <span class="chip">20 Kamar</span><span class="chip">Spring Bed</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Alamat Lengkap</div><div class="ibv">Raci Krajen RT.04/RW.03, Panumbuan, Desa Raci, Kec. Bangil, Pasuruan 67153</div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🩷 <strong>Kost Putri</strong> &nbsp;·&nbsp; 20 kamar</div></div>
+        <div class="ib"><div class="ibl">Jarak ke RSUD</div><div class="ibv">~300 m (terdekat dari daftar ini)</div></div>
+        <div class="ib"><div class="ibl">Kamar Mandi</div><div class="ibv">✓ Dalam kamar</div></div>
+        <div class="ib"><div class="ibl">AC</div><div class="ibv">✗ Tidak ada — kipas angin</div></div>
+        <div class="ib"><div class="ibl">WiFi</div><div class="ibv">✓ Free WiFi</div></div>
+        <div class="ib"><div class="ibl">Parkir Motor</div><div class="ibv">✓ Tersedia</div></div>
+        <div class="ib"><div class="ibl">Parkir Mobil</div><div class="ibv">✓ Tersedia</div></div>
+        <div class="ib"><div class="ibl">Ukuran Kamar</div><div class="ibv">Tidak dipublikasikan (standar)</div></div>
+        <div class="ib"><div class="ibl">Landmark Terdekat</div><div class="ibv">Hotel Dalwa (depan), PIER Industri Pasuruan (timur)</div></div>
+      </div>
+      <div class="sl">Fasilitas Kamar</div>
+      <div class="fpills">
+        <span class="fp">Spring Bed</span><span class="fp">Free WiFi</span><span class="fp">Kamar Mandi Dalam</span>
+      </div>
+      <div class="sl">Fasilitas Bersama & Sekitar</div>
+      <div class="fpills">
+        <span class="fp">Keamanan</span><span class="fp">Parkir Motor</span><span class="fp">Parkir Mobil</span>
+        <span class="fp">RSUD Bangil ±300m</span><span class="fp">Hotel Dalwa (depan)</span>
+        <span class="fp">PIER Industri (sebelah)</span><span class="fp">Rumah Makan</span><span class="fp">Minimarket</span>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">Termurah di kawasan — Rp 350rb/bln</div>
+          <div class="pmi">Paling dekat RSUD dari semua listing (~300m)</div>
+          <div class="pmi">WiFi gratis — hemat kuota</div>
+          <div class="pmi">Parkir motor & mobil tersedia</div>
+          <div class="pmi">20 kamar — stok biasanya ada</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi">Tidak ada AC — panas siang hari</div>
+          <div class="pmi">Fasilitas sangat minim (no dapur, no kulkas)</div>
+          <div class="pmi">Eksklusif putri — putra tidak bisa</div>
+          <div class="pmi">Ukuran kamar tidak dipublikasikan</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lgm" href="https://maps.google.com/?q=Raci+Krajen+RT04+RW03+Raci+Bangil+Pasuruan" target="_blank">📍 Google Maps</a>
+        <a class="lbtn lls" href="https://www.sewakost.com/kost/jawa-timur/pasuruan/abah-kost-pier-48202/" target="_blank">🔗 sewakost.com</a>
+        <a class="lbtn lwa" href="https://wa.me/6282230269909" target="_blank">💬 WA Pemilik</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">📞</span><span class="cl">HP / WA</span><span class="cv">082230269909</span><span class="cn">Zulfikar Mukarrom</span></div>
+      </div>
+      <div class="src">Sumber: <a href="https://www.sewakost.com/kost/jawa-timur/pasuruan/abah-kost-pier-48202/" target="_blank">sewakost.com #48202</a> · <a href="https://carialamat.biz.id/cari-kosan-terdekat/abah-kost-pier-raci-kec-bangil-raci/" target="_blank">carialamat.biz.id</a> · Listed 2021, dikonfirmasi aktif 2025–2026</div>
+    </div>
+  </div>
+
+  <!-- CARD 2 — Nabila Kost -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">2</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Nabila Kost Bangil</span>
+          <span class="tipe tc">🟩 Campur</span>
+          <span class="bsm bbud">Budget</span>
+        </div>
+        <div class="card-sub">Jl. Duyung Gg. Permata, Dermo, Bangil 67153 &nbsp;·&nbsp; Bangunan baru &nbsp;·&nbsp; 16 kamar &nbsp;·&nbsp; Lt.1 putra / Lt.2 putri</div>
+      </div>
+      <div class="card-right"><span class="card-price">Rp 600.000/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip">AC opsional (request, harga naik)</span>
+        <span class="chip con">✓ WiFi Gratis</span><span class="chip con">✓ KM Dalam</span>
+        <span class="chip">🟩 Campur</span><span class="chip">16 Kamar</span>
+        <span class="chip">Air PDAM</span><span class="chip">Bangunan Baru</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Alamat Lengkap</div><div class="ibv">Jl. Duyung Gg. Permata, Dermo, Bangil, Pasuruan 67153</div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🟩 <strong>Campur</strong> &nbsp;·&nbsp; Lt.1 putra / Lt.2 putri &nbsp;·&nbsp; 16 kamar</div></div>
+        <div class="ib"><div class="ibl">AC</div><div class="ibv">Opsional atas permintaan (harga bervariasi)</div></div>
+        <div class="ib"><div class="ibl">WiFi</div><div class="ibv">✓ Free WiFi</div></div>
+        <div class="ib"><div class="ibl">Kamar Mandi</div><div class="ibv">✓ Dalam kamar</div></div>
+        <div class="ib"><div class="ibl">Air</div><div class="ibv">PDAM (bersih, bukan sumur)</div></div>
+        <div class="ib"><div class="ibl">Parkir Motor</div><div class="ibv">Tidak disebutkan di listing</div></div>
+        <div class="ib"><div class="ibl">Parkir Mobil</div><div class="ibv">Tidak disebutkan di listing</div></div>
+        <div class="ib"><div class="ibl">TV</div><div class="ibv">Opsional atas permintaan</div></div>
+        <div class="ib"><div class="ibl">Bangunan</div><div class="ibv">Baru &nbsp;·&nbsp; Kualitas konstruksi lebih baik</div></div>
+      </div>
+      <div class="sl">Fasilitas Kamar</div>
+      <div class="fpills">
+        <span class="fp">KM Dalam</span><span class="fp">Spring Bed</span><span class="fp">Kipas Angin</span>
+        <span class="fp">Air PDAM</span><span class="fp">AC (opsional)</span><span class="fp">TV (opsional)</span>
+        <span class="fp">Free WiFi</span>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">Bangunan baru — kualitas & kebersihan lebih baik</div>
+          <div class="pmi">Campur (putra/putri) — fleksibel</div>
+          <div class="pmi">16 kamar — stok relatif tersedia</div>
+          <div class="pmi">WiFi gratis & air PDAM</div>
+          <div class="pmi">Ada opsi AC & TV atas permintaan</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi">Harga naik jika minta AC/TV — tidak fix Rp 600rb</div>
+          <div class="pmi">Info parkir tidak disebutkan di listing</div>
+          <div class="pmi">Jarak ke RSUD tidak tertera (~1–2km estimasi)</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lgm" href="https://maps.google.com/?q=Jl+Duyung+Gg+Permata+Dermo+Bangil+Pasuruan" target="_blank">📍 Google Maps</a>
+        <a class="lbtn lls" href="https://www.sewakost.com/kost/jawa-timur/pasuruan/nabila-kost-bangil-pasuruan-23980/" target="_blank">🔗 sewakost.com</a>
+        <a class="lbtn lls" href="https://infokost.id/listings/nabila-kost-bangil-pasuruan-bangil-24510-type-1-39890" target="_blank">🔗 infokost.id</a>
+        <a class="lbtn lwa" href="https://wa.me/6285931240420" target="_blank">💬 WA Pemilik</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">📞</span><span class="cl">HP</span><span class="cv">08175123031</span><span class="cn">Santi Oktaviarin</span></div>
+        <div class="crow"><span class="ci">💬</span><span class="cl">WhatsApp</span><span class="cv">085931240420</span></div>
+      </div>
+      <div class="src">Sumber: <a href="https://www.sewakost.com/kost/jawa-timur/pasuruan/nabila-kost-bangil-pasuruan-23980/" target="_blank">sewakost.com #23980</a> · <a href="https://infokost.id/listings/nabila-kost-bangil-pasuruan-bangil-24510-type-1-39890" target="_blank">infokost.id</a> · Listed 2019, nomor kontak diverifikasi 2024</div>
+    </div>
+  </div>
+
+  <!-- CARD 3 — Graha Kost -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">3</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Graha Kost Bangil–Pandaan</span>
+          <span class="tipe tps">🟡 Pasutri / Campur</span>
+          <span class="bsm bbud">Budget</span>
+        </div>
+        <div class="card-sub">Jl. Raya Bangil–Pandaan Km.2, Dusun Mindi RT01/RW03, Kel. Sidowayah, Kec. Beji &nbsp;·&nbsp; Dekat Lesehan Kintamani & Kolam Renang Sebani</div>
+      </div>
+      <div class="card-right"><span class="card-price">Rp 500.000/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip">AC ada (1 kamar, harga beda)</span>
+        <span class="chip cof">No WiFi</span><span class="chip con">✓ KM Dalam</span>
+        <span class="chip con">✓ Parkir Motor (dalam, covered)</span>
+        <span class="chip">🟡 Pasutri/Campur</span><span class="chip">8 Kamar</span>
+        <span class="chip">Listrik Token</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Alamat Lengkap</div><div class="ibv">Jl. Raya Bangil–Pandaan Km.2, Dusun Mindi RT01/RW03, Kel. Sidowayah, Kec. Beji, Kab. Pasuruan (Komplek Lesehan Kintamani)</div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🟡 <strong>Pasutri / Putra / Putri</strong> &nbsp;·&nbsp; 8 kamar</div></div>
+        <div class="ib"><div class="ibl">AC</div><div class="ibv">1 kamar ber-AC tersedia (harga lebih tinggi)</div></div>
+        <div class="ib"><div class="ibl">WiFi</div><div class="ibv">✗ Tidak tersedia</div></div>
+        <div class="ib"><div class="ibl">Kamar Mandi</div><div class="ibv">✓ Dalam + wastafel cuci piring</div></div>
+        <div class="ib"><div class="ibl">Listrik</div><div class="ibv">Token — bayar sendiri sesuai pemakaian</div></div>
+        <div class="ib"><div class="ibl">Parkir Motor</div><div class="ibv">✓ Di dalam, covered/atap</div></div>
+        <div class="ib"><div class="ibl">Parkir Mobil</div><div class="ibv">Tidak disebutkan eksplisit</div></div>
+        <div class="ib"><div class="ibl">Jarak ke RSUD</div><div class="ibv">~3 km (perlu kendaraan)</div></div>
+        <div class="ib"><div class="ibl">Jarak ke PKM Bangil</div><div class="ibv">~1 km</div></div>
+      </div>
+      <div class="sl">Fasilitas Kamar</div>
+      <div class="fpills">
+        <span class="fp">Spring Bed</span><span class="fp">Bantal & Guling</span><span class="fp">Lemari Pakaian</span>
+        <span class="fp">Kipas Angin</span><span class="fp">Karpet</span><span class="fp">Gorden</span>
+        <span class="fp">KM Dalam</span><span class="fp">Wastafel Cuci Piring</span>
+      </div>
+      <div class="sl">Sekitar Kost</div>
+      <div class="fpills">
+        <span class="fp">Dokter Gigi (sebelah)</span><span class="fp">Kolam Renang Sebani (depan)</span>
+        <span class="fp">Pom Bensin ±300m</span><span class="fp">Indomaret ±500m</span>
+        <span class="fp">Polsek Bangil ±500m</span><span class="fp">Apotek Malika ±600m</span>
+        <span class="fp">PKM Bangil ±1km</span><span class="fp">Pasar Bangil ±1km</span>
+        <span class="fp">Stasiun Bangil ±2km</span><span class="fp">RSUD Bangil ±3km</span>
+        <span class="fp">Akses Tol Bangil (dekat)</span>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">Parkir motor covered di dalam — aman</div>
+          <div class="pmi">Lokasi strategis jalan utama Bangil–Pandaan</div>
+          <div class="pmi">Cocok pasutri/keluarga muda</div>
+          <div class="pmi">Ada opsi kamar ber-AC</div>
+          <div class="pmi">Dekat PKM Bangil, apotek, minimarket</div>
+          <div class="pmi">Fasilitas kamar cukup lengkap (karpet, gorden, dll.)</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi">Tidak ada WiFi</div>
+          <div class="pmi">Listrik token — biaya bisa membengkak jika pakai AC</div>
+          <div class="pmi">Hanya 8 kamar — stok cepat habis</div>
+          <div class="pmi">RSUD Raci ±3km — butuh kendaraan</div>
+          <div class="pmi">Parkir mobil tidak disebutkan eksplisit</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lgm" href="https://maps.google.com/?q=Jl+Raya+Bangil+Pandaan+Km+2+Sidowayah+Beji+Pasuruan" target="_blank">📍 Google Maps</a>
+        <a class="lbtn lls" href="https://www.sewakost.com/kost/jawa-timur/pasuruan/graha-kost-pandaan-bangil-terima-kos-putra-putri-amp-kelu-156336/" target="_blank">🔗 sewakost.com</a>
+        <a class="lbtn lwa" href="https://wa.me/6282257152074" target="_blank">💬 WA Pemilik</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">📞</span><span class="cl">HP</span><span class="cv">08819387819</span><span class="cn">Muhadjir</span></div>
+        <div class="crow"><span class="ci">💬</span><span class="cl">WhatsApp</span><span class="cv">082257152074</span></div>
+      </div>
+      <div class="src">Sumber: <a href="https://www.sewakost.com/kost/jawa-timur/pasuruan/graha-kost-pandaan-bangil-terima-kos-putra-putri-amp-kelu-156336/" target="_blank">sewakost.com #156336</a> · Listed Jan 2024 (listing relatif baru)</div>
+    </div>
+  </div>
+
+  <!-- CARD 4 — Permata Asri -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">4</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Kost Permata Asri Bangil</span>
+          <span class="tipe tp">🟦 Putra / Pasutri</span>
+          <span class="bsm bbud">Budget</span>
+        </div>
+        <div class="card-sub">Perum. Permata Asri Blok C-07 RT002/RW005, Kel. Gempeng, Kec. Bangil &nbsp;·&nbsp; Lingkungan perumahan, dekat pabrik kawasan Bangil</div>
+      </div>
+      <div class="card-right"><span class="card-price">Rp 450.000/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip cof">No AC</span><span class="chip cof">No WiFi</span>
+        <span class="chip con">✓ KM Dalam</span><span class="chip con">✓ Parkir Motor</span>
+        <span class="chip con">✓ Air + Listrik Included</span>
+        <span class="chip">🟦 Putra / Pasutri</span>
+        <span class="chip">Boleh 2 orang/kamar</span><span class="chip">Perumahan Aman</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Alamat Lengkap</div><div class="ibv">Perum. Permata Asri Blok C-07 RT002/RW005, Kel. Gempeng, Kec. Bangil, Kab. Pasuruan, Jawa Timur</div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🟦 <strong>Putra / Pasutri</strong> &nbsp;·&nbsp; Boleh 2 orang/kamar</div></div>
+        <div class="ib"><div class="ibl">Harga Tahunan</div><div class="ibv">Rp 4.500.000/th (diskon 2 bulan)</div></div>
+        <div class="ib"><div class="ibl">Air & Listrik</div><div class="ibv">✓ Sudah included (all-in bulanan)</div></div>
+        <div class="ib"><div class="ibl">Kamar Mandi</div><div class="ibv">✓ Dalam kamar</div></div>
+        <div class="ib"><div class="ibl">AC / WiFi</div><div class="ibv">✗ Tidak ada keduanya</div></div>
+        <div class="ib"><div class="ibl">Parkir Motor</div><div class="ibv">✓ Tersedia</div></div>
+        <div class="ib"><div class="ibl">Parkir Mobil</div><div class="ibv">Tidak disebutkan</div></div>
+        <div class="ib"><div class="ibl">Lingkungan</div><div class="ibv">Perumahan — aman & tenang</div></div>
+        <div class="ib"><div class="ibl">Dekat Ibadah</div><div class="ibv">Ya (disebutkan di listing)</div></div>
+      </div>
+      <div class="sl">Fasilitas Kamar</div>
+      <div class="fpills">
+        <span class="fp">Kasur + Lemari Pakaian</span><span class="fp">KM Dalam</span>
+        <span class="fp">Air Bulanan Included</span><span class="fp">Listrik Bulanan Included</span>
+        <span class="fp">Dekat Masjid/Musholla</span>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">Harga murah Rp 450rb termasuk air & listrik</div>
+          <div class="pmi">No surprise cost — semua sudah included</div>
+          <div class="pmi">Lingkungan perumahan — tenang & aman</div>
+          <div class="pmi">Bisa 2 orang/kamar (pasutri)</div>
+          <div class="pmi">Bayar tahunan dengan diskon 2 bulan</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi">Tidak ada AC dan WiFi</div>
+          <div class="pmi">Parkir mobil tidak disebutkan</div>
+          <div class="pmi">Jarak ke RSUD tidak diketahui pasti</div>
+          <div class="pmi">Listing lama (2020) — konfirmasi aktif dulu</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lgm" href="https://maps.google.com/?q=Perum+Permata+Asri+Gempeng+Bangil+Pasuruan" target="_blank">📍 Google Maps</a>
+        <a class="lbtn lls" href="https://www.sewakost.com/kost-jawa-timur/kost-pasuruan/sewa-kost-di-bangil-pasuruan-murah-28955.html" target="_blank">🔗 sewakost.com</a>
+        <a class="lbtn lwa" href="https://wa.me/6289680507038" target="_blank">💬 WA Pemilik</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">📞</span><span class="cl">HP / WA</span><span class="cv">089680507038</span><span class="cn">Miftah Faridl Achmad</span></div>
+      </div>
+      <div class="note warn">⚠️ Listing dari 2020. Wajib konfirmasi aktif via WA sebelum survei langsung. Harga bisa berubah.</div>
+      <div class="src">Sumber: <a href="https://www.sewakost.com/kost-jawa-timur/kost-pasuruan/sewa-kost-di-bangil-pasuruan-murah-28955.html" target="_blank">sewakost.com #28955</a> · kontak dikonfirmasi ada di listing 2024–2026</div>
+    </div>
+  </div>
+
+  <!-- CARD 5 — Kosan Mbak Mei -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">5</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Kosan Mbak Mei Bangil</span>
+          <span class="tipe tc">🟩 Campur</span>
+          <span class="bsm bbud">Budget</span>
+        </div>
+        <div class="card-sub">Jl. R.A. Kartini Gg.3, Latek Kidul, Latek, Kec. Bangil &nbsp;·&nbsp; Google Plus Code: 9QWX+3J5 &nbsp;·&nbsp; Terdaftar Google Maps</div>
+      </div>
+      <div class="card-right"><span class="card-price">~Rp 400–500rb/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip">Detail fasilitas: konfirmasi langsung</span>
+        <span class="chip">🟩 Campur</span><span class="chip">Terdaftar Google Maps</span>
+        <span class="chip">Industri: Asrama/Indekos</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Alamat Lengkap</div><div class="ibv">9QWX+3J5, Jl. R.A.Kartini Gg.3, Latek Kidul, Latek, Kec. Bangil, Pasuruan 67153</div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🟩 <strong>Kost Campur</strong></div></div>
+        <div class="ib"><div class="ibl">Harga Estimasi</div><div class="ibv">~Rp 400–500rb/bln (konfirmasi ke pemilik)</div></div>
+        <div class="ib"><div class="ibl">Kode GMaps</div><div class="ibv">9QWX+3J5 Bangil (cari di Google Maps)</div></div>
+        <div class="ib"><div class="ibl">Fasilitas</div><div class="ibv">Konfirmasi via telepon/survei langsung</div></div>
+        <div class="ib"><div class="ibl">Jarak ke RSUD</div><div class="ibv">~1–2 km estimasi (dalam kota Bangil)</div></div>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">Terdaftar Google Maps — mudah navigasi</div>
+          <div class="pmi">Lokasi Bangil dalam kota — akses mudah</div>
+          <div class="pmi">Nomor HP terdokumentasi di semuabis.com</div>
+          <div class="pmi">Campur — fleksibel putra/putri</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi">Detail fasilitas tidak dipublikasikan online</div>
+          <div class="pmi">Harga hanya estimasi</div>
+          <div class="pmi">Review sangat terbatas</div>
+          <div class="pmi">Perlu konfirmasi AC, WiFi, parkir via telepon</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lgm" href="https://maps.google.com/?q=9QWX+3J5+Latek+Bangil+Pasuruan" target="_blank">📍 Google Maps (Plus Code)</a>
+        <a class="lbtn lls" href="https://www.semuabis.com/kosan-mbak-mei-0857-5526-6320" target="_blank">🔗 semuabis.com</a>
+        <a class="lbtn lwa" href="https://wa.me/6285755266320" target="_blank">💬 WA Pemilik</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">📞</span><span class="cl">HP / WA</span><span class="cv">0857-5526-6320</span><span class="cn">Mbak Mei (pemilik)</span></div>
+      </div>
+      <div class="note info">ℹ️ Data dari semuabis.com & Google Maps. Wajib telepon untuk konfirmasi harga, ketersediaan, AC, WiFi, dan parkir sebelum datang.</div>
+      <div class="src">Sumber: <a href="https://www.semuabis.com/kosan-mbak-mei-0857-5526-6320" target="_blank">semuabis.com/kosan-mbak-mei</a> &nbsp;·&nbsp; Google Maps Plus Code: 9QWX+3J5</div>
+    </div>
+  </div>
+</div><!-- end tab bangil -->
+
+<!-- ═══════════════════════════════════
+     TAB 2 — PKM PANDAAN
+═══════════════════════════════════════ -->
+<div id="b2" class="panel">
+  <div class="area-hdr">
+    <div class="area-title">Sekitar Puskesmas Pandaan, Pasuruan</div>
+    <div class="area-meta">📍 Jl. Raya Bypass No. 06, Kec. Pandaan, Kab. Pasuruan &nbsp;·&nbsp; Kawasan industri aktif · Gudang Garam, Sampoerna, Aqua, Indolakto, KDM</div>
+  </div>
+  <div class="legend">
+    <span class="leg leg-putra">🟦 Kost Putra</span>
+    <span class="leg leg-putri">🩷 Kost Putri</span>
+    <span class="leg leg-campur">🟩 Kost Campur</span>
+    <span class="leg leg-pasutri">🟡 Keluarga/Pasutri</span>
+  </div>
+
+  <!-- CARD 1 — Kos Putra AC Wijaya Permai -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">1</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Kos Putra AC – Wijaya Permai Pandaan</span>
+          <span class="tipe tp">🟦 Putra</span>
+          <span class="bsm bbud">Budget</span>
+        </div>
+        <div class="card-sub">Jl. Wijaya Permai 30 / Simpang Wijaya Permai GG V, Pandaan &nbsp;·&nbsp; Belakang Terminal Pandaan / Supermarket Sardo</div>
+      </div>
+      <div class="card-right"><span class="card-price">Rp 750.000/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip con">✓ AC</span><span class="chip con">✓ WiFi Gratis</span>
+        <span class="chip con">✓ KM Dalam</span><span class="chip con">✓ Kulkas</span>
+        <span class="chip con">✓ Parkir Motor</span><span class="chip con">✓ Parkir Mobil</span>
+        <span class="chip con">✓ Dapur Bersama</span><span class="chip con">✓ Mesin Cuci</span>
+        <span class="chip">🟦 Putra Only</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Alamat Lengkap</div><div class="ibv">Jl. Wijaya Permai No.30 / Simpang Wijaya Permai GG V, Pandaan, Kab. Pasuruan<br><small style="color:var(--muted)">Alt: Belakang Terminal Pandaan / Supermarket Sardo</small></div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🟦 <strong>Kost Putra</strong></div></div>
+        <div class="ib"><div class="ibl">AC</div><div class="ibv">✓ Ya, tiap kamar</div></div>
+        <div class="ib"><div class="ibl">WiFi</div><div class="ibv">✓ Free WiFi</div></div>
+        <div class="ib"><div class="ibl">Kamar Mandi</div><div class="ibv">✓ Dalam kamar</div></div>
+        <div class="ib"><div class="ibl">Kulkas</div><div class="ibv">✓ Tersedia</div></div>
+        <div class="ib"><div class="ibl">Parkir Motor</div><div class="ibv">✓ Tersedia</div></div>
+        <div class="ib"><div class="ibl">Parkir Mobil</div><div class="ibv">✓ Tersedia</div></div>
+        <div class="ib"><div class="ibl">Dapur</div><div class="ibv">✓ Dapur bersama</div></div>
+        <div class="ib"><div class="ibl">Mesin Cuci</div><div class="ibv">✓ Tersedia (cuci sendiri)</div></div>
+        <div class="ib"><div class="ibl">Jarak ke PKM Pandaan</div><div class="ibv">~1–2 km (perlu motor)</div></div>
+        <div class="ib"><div class="ibl">Landmark</div><div class="ibv">Terminal Pandaan, Supermarket Sardo, Tol Pandaan</div></div>
+      </div>
+      <div class="sl">Fasilitas Kamar</div>
+      <div class="fpills">
+        <span class="fp">Spring Bed</span><span class="fp">AC</span><span class="fp">Free WiFi</span>
+        <span class="fp">Kulkas</span><span class="fp">Kamar Mandi Dalam</span>
+      </div>
+      <div class="sl">Fasilitas Bersama</div>
+      <div class="fpills">
+        <span class="fp">Ruang Tamu</span><span class="fp">TV Bersama</span><span class="fp">Dapur Bersama</span>
+        <span class="fp">Mesin Cuci (cuci sendiri)</span><span class="fp">Parkir Motor</span><span class="fp">Parkir Mobil</span>
+      </div>
+      <div class="sl">Sekitar Kost</div>
+      <div class="fpills">
+        <span class="fp">Terminal Pandaan</span><span class="fp">Supermarket Sardo</span>
+        <span class="fp">Tol Pandaan Taman Dayu</span><span class="fp">Masjid Cheng Ho Pandaan</span>
+        <span class="fp">PT Gudang Garam, Sampoerna, KDM</span>
+        <span class="fp">PKM Pandaan ±1–2km</span>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">Fasilitas paling lengkap di harga ini (AC, kulkas, dapur, mesin cuci)</div>
+          <div class="pmi">AC tiap kamar — nyaman sepanjang tahun</div>
+          <div class="pmi">Parkir motor & mobil tersedia</div>
+          <div class="pmi">Tengah kota Pandaan, dekat terminal & tol</div>
+          <div class="pmi">Ada dapur + mesin cuci — hemat biaya hidup</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi">Eksklusif putra — putri tidak bisa</div>
+          <div class="pmi">PKM Pandaan ±1–2km (perlu motor)</div>
+          <div class="pmi">Ukuran kamar tidak dicantumkan</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lgm" href="https://maps.google.com/?q=Jl+Wijaya+Permai+30+Pandaan+Pasuruan" target="_blank">📍 Google Maps</a>
+        <a class="lbtn lls" href="https://www.sewakost.com/kost/jawa-timur/pasuruan/kos-putra-ac-kamarmandi-dalam-pandaan-pasuruan-94205/" target="_blank">🔗 sewakost.com</a>
+        <a class="lbtn lwa" href="https://wa.me/6287859592733" target="_blank">💬 WA Pemilik</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">📞</span><span class="cl">HP / WA</span><span class="cv">087859592733</span><span class="cn">Dadang Harjito</span></div>
+      </div>
+      <div class="src">Sumber: <a href="https://www.sewakost.com/kost/jawa-timur/pasuruan/kos-putra-ac-kamarmandi-dalam-pandaan-pasuruan-94205/" target="_blank">sewakost.com #94205</a> · Listed Sep 2022</div>
+    </div>
+  </div>
+
+  <!-- CARD 2 — Raflesia Kost -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">2</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Raflesia Kost Pandaan</span>
+          <span class="tipe tp">🟦 Kost Putra</span>
+          <span class="bsm bprem">Premium</span>
+        </div>
+        <div class="card-sub">Cluster Raflesia, Blok D4 No.7A–7B & D1.08A, Perum. Oma Indah Kapuk, Suwayuwo, Kec. Sukorejo (Pandaan) &nbsp;·&nbsp; One Gate System &nbsp;·&nbsp; View Gunung Arjuno &nbsp;·&nbsp; Izin Resmi</div>
+      </div>
+      <div class="card-right"><span class="card-price">Rp 650rb–1,3jt/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip con">✓ AC (tipe 1,3jt)</span><span class="chip con">✓ WiFi Gratis</span>
+        <span class="chip con">✓ KM Dalam</span><span class="chip con">✓ TV (tipe AC)</span>
+        <span class="chip con">✓ Parkir Motor</span><span class="chip con">✓ Parkir Mobil</span>
+        <span class="chip con">✓ Security 24 jam</span><span class="chip con">✓ Laundry</span>
+        <span class="chip con">✓ Catering</span><span class="chip con">✓ All-inclusive</span>
+        <span class="chip">🟦 Putra Only</span><span class="chip">Izin Resmi</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Alamat Lengkap</div><div class="ibv">Cluster Raflesia, Blok D4 No.7A & 7B, Blok D1.08A & D1.08B, Perum. Oma Indah Kapuk, Suwayuwo, Kec. Sukorejo, Pasuruan 67161</div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🟦 <strong>Kost Putra</strong> &nbsp;·&nbsp; Izin resmi instansi setempat</div></div>
+        <div class="ib"><div class="ibl">Tipe Non-AC (D4.07A, D1.08B)</div><div class="ibv">Rp 650.000/bln &nbsp;·&nbsp; 2,5×3m &nbsp;·&nbsp; Kipas + TV bersama + Kompor bersama</div></div>
+        <div class="ib"><div class="ibl">Tipe AC (D4.07B)</div><div class="ibv">Rp 1.300.000/bln &nbsp;·&nbsp; 3×4m &nbsp;·&nbsp; AC + TV + Teko Pemanas Air. Harian: Rp 175.000</div></div>
+        <div class="ib"><div class="ibl">Semua Biaya Include</div><div class="ibv">Listrik, air, kebersihan, keamanan &nbsp;→&nbsp; no extra cost</div></div>
+        <div class="ib"><div class="ibl">Kasur & Linen</div><div class="ibv">120×200cm + bantal + guling + lemari</div></div>
+        <div class="ib"><div class="ibl">Parkir Motor</div><div class="ibv">✓ Perumahan one gate</div></div>
+        <div class="ib"><div class="ibl">Parkir Mobil</div><div class="ibv">✓ Tersedia (perumahan)</div></div>
+        <div class="ib"><div class="ibl">Laundry & Catering</div><div class="ibv">✓ Tersedia di lokasi</div></div>
+        <div class="ib"><div class="ibl">Jarak ke PKM Pandaan</div><div class="ibv">~2–3 km (perlu motor)</div></div>
+      </div>
+      <div class="sl">Fasilitas Lengkap</div>
+      <div class="fpills">
+        <span class="fp">AC (tipe 1,3jt)</span><span class="fp">TV (tipe AC)</span><span class="fp">Teko Pemanas Air</span>
+        <span class="fp">Free WiFi</span><span class="fp">Kasur Standar 120×200</span><span class="fp">Lemari</span>
+        <span class="fp">KM Dalam</span><span class="fp">Kompor Bersama</span><span class="fp">TV Bersama (non-AC)</span>
+        <span class="fp">Laundry</span><span class="fp">Catering Tersedia</span><span class="fp">Security 24 jam</span>
+        <span class="fp">View Gunung Arjuno</span><span class="fp">Kebersihan Harian</span>
+      </div>
+      <div class="sl">Jarak ke Fasilitas Sekitar</div>
+      <div class="fpills">
+        <span class="fp">PT Indolakto Pandaan ±0,5km</span><span class="fp">PT HM Sampoerna ±0,5km</span>
+        <span class="fp">Diklat PLN Pandaan ±0,5km</span><span class="fp">Taman Dayu ±1km</span>
+        <span class="fp">Jasa Marga Pandaan ±1km</span><span class="fp">PT Tanobel Food ±1km</span>
+        <span class="fp">PKM Pandaan ±2–3km</span>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">All-inclusive: listrik, air, kebersihan, keamanan</div>
+          <div class="pmi">Laundry & catering tersedia — sangat praktis</div>
+          <div class="pmi">Security 24 jam one gate system</div>
+          <div class="pmi">Ada tipe harian, mingguan, bulanan</div>
+          <div class="pmi">View Gunung Arjuno — udara segar, estetik</div>
+          <div class="pmi">Izin resmi — status legal jelas</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi">Eksklusif putra — putri tidak bisa</div>
+          <div class="pmi">Lokasi masuk perumahan — butuh motor</div>
+          <div class="pmi">PKM Pandaan ~2–3km dari sini</div>
+          <div class="pmi">Kamar non-AC kecil (2,5×3m = 7,5m²)</div>
+          <div class="pmi">Harga tipe AC paling tinggi di daftar ini</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lgm" href="https://maps.google.com/?q=Perum+Oma+Indah+Kapuk+Cluster+Raflesia+Suwayuwo+Pandaan+Pasuruan" target="_blank">📍 Google Maps</a>
+        <a class="lbtn lls" href="https://www.sewakost.com/kost/jawa-timur/pasuruan/raflesia-kost-pandaan-harian-dan-bulanan-171771/" target="_blank">🔗 sewakost.com</a>
+        <a class="lbtn lwa" href="https://wa.me/6282232298677" target="_blank">💬 WA Pemilik</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">📞</span><span class="cl">HP</span><span class="cv">082232298677</span><span class="cn">Yudi (pemilik)</span></div>
+      </div>
+      <div class="src">Sumber: <a href="https://www.sewakost.com/kost/jawa-timur/pasuruan/raflesia-kost-pandaan-harian-dan-bulanan-171771/" target="_blank">sewakost.com #171771</a> · Listed Jun 2024 (listing terbaru & terverifikasi)</div>
+    </div>
+  </div>
+
+  <!-- CARD 3 — Kos Murah Keluarga -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">3</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Kos Murah Keluarga – Jl. Pahlawan Sunaryo</span>
+          <span class="tipe tps">🟡 Keluarga / Campur</span>
+          <span class="bsm bbud">Budget</span>
+        </div>
+        <div class="card-sub">Jl. Pahlawan Sunaryo No. 260, Pandaan &nbsp;·&nbsp; Di bawah jalan layang tol &nbsp;·&nbsp; Sebelah Kampus IBMA &nbsp;·&nbsp; Parkir mobil luas</div>
+      </div>
+      <div class="card-right"><span class="card-price">Rp 500.000/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip cof">No AC</span><span class="chip cof">No WiFi</span>
+        <span class="chip">KM (konfirmasi)</span>
+        <span class="chip con">✓ Parkir Mobil Luas</span>
+        <span class="chip">🟡 Keluarga/Campur</span>
+        <span class="chip">Tepi Jalan Raya</span><span class="chip">Air Sumur Bor</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Alamat Lengkap</div><div class="ibv">Jl. Pahlawan Sunaryo No. 260, Pandaan, Pasuruan (di bawah jalan layang Tol Pandaan, sebelah Kampus IBMA)</div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🟡 <strong>Keluarga / Campur</strong></div></div>
+        <div class="ib"><div class="ibl">Parkir Mobil</div><div class="ibv">✓ Luas — disebutkan eksplisit di listing</div></div>
+        <div class="ib"><div class="ibl">Air</div><div class="ibv">Sumur bor (cek kualitas saat survei)</div></div>
+        <div class="ib"><div class="ibl">Sekitar</div><div class="ibv">Minimarket, RS, warung makan &amp; kuliner dekat</div></div>
+        <div class="ib"><div class="ibl">Akses Angkutan</div><div class="ibv">Tepi jalan raya utama Pandaan — mudah angkutan</div></div>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">Parkir mobil luas — sangat jarang di budget ini</div>
+          <div class="pmi">Tepi jalan raya — akses angkutan umum mudah</div>
+          <div class="pmi">Dekat minimart, RS, warung makan</div>
+          <div class="pmi">Cocok bagi yang membawa mobil</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi">Tidak ada AC dan WiFi</div>
+          <div class="pmi">Di bawah jalan layang tol — potensi bising</div>
+          <div class="pmi">Detail fasilitas kamar sangat terbatas di listing</div>
+          <div class="pmi">Air sumur bor — kualitas perlu dicek saat survei</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lgm" href="https://maps.google.com/?q=Jl+Pahlawan+Sunaryo+260+Pandaan+Pasuruan" target="_blank">📍 Google Maps</a>
+        <a class="lbtn lls" href="https://www.sewakost.com/kost-jawa-timur/kost-pasuruan/kos-murah-untuk-keluarga-di-pandaan-14007.html" target="_blank">🔗 sewakost.com</a>
+        <a class="lbtn lwa" href="https://wa.me/6288134669640" target="_blank">💬 WA Pemilik</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">📞</span><span class="cl">HP / WA</span><span class="cv">08813466964</span><span class="cn">Pemilik (nama tidak dipublikasikan)</span></div>
+      </div>
+      <div class="src">Sumber: <a href="https://www.sewakost.com/kost-jawa-timur/kost-pasuruan/kos-murah-untuk-keluarga-di-pandaan-14007.html" target="_blank">sewakost.com #14007</a></div>
+    </div>
+  </div>
+
+  <!-- CARD 4 — Kost Putri Instagram -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">4</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Kost Putri Hemat Pandaan</span>
+          <span class="tipe tt">🩷 Putri</span>
+          <span class="bsm bbud">Budget</span>
+        </div>
+        <div class="card-sub">Pandaan, Kab. Pasuruan &nbsp;·&nbsp; 8 kamar &nbsp;·&nbsp; Instagram aktif @kostpandaanpasuruan</div>
+      </div>
+      <div class="card-right"><span class="card-price">mulai Rp 600.000/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip con">✓ KM Dalam</span><span class="chip con">✓ Dapur Lengkap</span>
+        <span class="chip">🩷 Putri Only</span><span class="chip">8 Kamar</span>
+        <span class="chip">IG Aktif 2024</span><span class="chip">Detail: konfirmasi WA</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Lokasi</div><div class="ibv">Pandaan, Kab. Pasuruan (alamat lengkap via WA)</div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🩷 <strong>Kost Putri</strong> &nbsp;·&nbsp; 8 kamar</div></div>
+        <div class="ib"><div class="ibl">Fasilitas Utama</div><div class="ibv">KM dalam · Dapur lengkap · 8 kamar total</div></div>
+        <div class="ib"><div class="ibl">Media Sosial</div><div class="ibv"><a href="https://www.instagram.com/kostpandaanpasuruan/" target="_blank">@kostpandaanpasuruan (Instagram)</a></div></div>
+        <div class="ib"><div class="ibl">AC / WiFi</div><div class="ibv">Konfirmasi langsung ke pemilik via WA</div></div>
+        <div class="ib"><div class="ibl">Jarak ke PKM Pandaan</div><div class="ibv">Konfirmasi ke pemilik (alamat belum publik)</div></div>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">Instagram aktif 2024 — bukan listing usang</div>
+          <div class="pmi">KM dalam + dapur lengkap sudah included</div>
+          <div class="pmi">Khusus putri — lebih privat & aman</div>
+          <div class="pmi">Bisa lihat foto asli di IG sebelum survey</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi">Alamat lengkap tidak dipublikasikan online</div>
+          <div class="pmi">AC, WiFi, parkir perlu konfirmasi</div>
+          <div class="pmi">Hanya 8 kamar — cepat penuh</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lna">📍 GMaps: minta ke pemilik via WA</a>
+        <a class="lbtn lls" href="https://www.instagram.com/kostpandaanpasuruan/" target="_blank">📸 Instagram</a>
+        <a class="lbtn lwa" href="https://wa.me/6281332971997" target="_blank">💬 WA Pemilik</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">💬</span><span class="cl">WhatsApp</span><span class="cv">081332971997</span><span class="cn">Pemilik Kost Putri Pandaan</span></div>
+      </div>
+      <div class="src">Sumber: Instagram <a href="https://www.instagram.com/kostpandaanpasuruan/" target="_blank">@kostpandaanpasuruan</a> · Bio update 2024</div>
+    </div>
+  </div>
+
+  <!-- CARD 5 — Kos Kavlingan -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">5</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Kos Pandaan – Kavlingan Karangjati</span>
+          <span class="tipe tc">🟩 Campur</span>
+          <span class="bsm bbud">Budget</span>
+        </div>
+        <div class="card-sub">Kavlingan Baru Permai Gg 1, Kalitengah Karangjati Blok 008, Pandaan &nbsp;·&nbsp; Ibu Muslikha &nbsp;·&nbsp; Termurah Pandaan</div>
+      </div>
+      <div class="card-right"><span class="card-price">Rp 400.000/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip cof">No AC</span><span class="chip cof">No WiFi</span>
+        <span class="chip con">✓ KM Dalam</span><span class="chip con">✓ Parkir</span>
+        <span class="chip">🟩 Campur</span><span class="chip">Termurah Pandaan</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Alamat Lengkap</div><div class="ibv">Kavlingan Baru Permai Gg 1, Kalitengah Karangjati Blok 008, Pandaan, Pasuruan</div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🟩 <strong>Kost Campur</strong></div></div>
+        <div class="ib"><div class="ibl">Kasur</div><div class="ibv">Tempat tidur + kasur spon + bantal</div></div>
+        <div class="ib"><div class="ibl">Parkir</div><div class="ibv">✓ Tersedia (motor; konfirmasi mobil)</div></div>
+        <div class="ib"><div class="ibl">Dapur</div><div class="ibv">✓ Dapur umum bersama</div></div>
+        <div class="ib"><div class="ibl">Lemari</div><div class="ibv">✓ Lemari pakaian</div></div>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">Termurah di Pandaan — Rp 400rb/bln</div>
+          <div class="pmi">KM dalam sudah included</div>
+          <div class="pmi">Ada dapur umum — bisa masak sendiri</div>
+          <div class="pmi">Parkir tersedia</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi">Tidak ada AC dan WiFi</div>
+          <div class="pmi">Kasur spon — kualitas tidur lebih rendah dari spring bed</div>
+          <div class="pmi">Lokasi gang — akses mobil mungkin terbatas</div>
+          <div class="pmi">Listing lama — wajib konfirmasi aktifnya</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lgm" href="https://maps.google.com/?q=Kavlingan+Baru+Permai+Karangjati+Pandaan+Pasuruan" target="_blank">📍 Google Maps</a>
+        <a class="lbtn lls" href="https://www.sewakost.com/kost-jawa-timur/kost-pasuruan/kos-pandaan-14655.html" target="_blank">🔗 sewakost.com</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">📞</span><span class="cl">Pemilik</span><span class="cv">Ibu Muslikha</span><span class="cn">Nomor via sewakost.com listing langsung</span></div>
+      </div>
+      <div class="note warn">⚠️ Nomor HP tidak dipublikasikan online. Akses nomor melalui sewakost.com atau datang langsung ke lokasi untuk konfirmasi.</div>
+      <div class="src">Sumber: <a href="https://www.sewakost.com/kost-jawa-timur/kost-pasuruan/kos-pandaan-14655.html" target="_blank">sewakost.com #14655</a></div>
+    </div>
+  </div>
+</div><!-- end tab pandaan -->
+
+<!-- ═══════════════════════════════════
+     TAB 3 — PKM PURWODADI
+═══════════════════════════════════════ -->
+<div id="b3" class="panel">
+  <div class="area-hdr">
+    <div class="area-title">Sekitar Puskesmas Purwodadi, Pasuruan</div>
+    <div class="area-meta">📍 Kec. Purwodadi, Kab. Pasuruan &nbsp;·&nbsp; Area semi-rural &nbsp;·&nbsp; Dekat Kebun Raya Purwodadi (LIPI/BRIN)</div>
+  </div>
+  <div class="note danger" style="margin-bottom:14px">
+    ⚠️ <strong>Situasi Data Purwodadi:</strong> Kec. Purwodadi adalah area dominan pertanian & perkebunan — listing kost online sangat terbatas. Hanya 2 listing yang benar-benar terdokumentasi di bawah. Sangat dianjurkan kombinasikan dengan metode offline (lihat tips di card terakhir).
+  </div>
+  <div class="legend">
+    <span class="leg leg-campur">🟩 Campur</span>
+  </div>
+
+  <!-- CARD 1 — Bella Asri -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">1</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Kos Bella Asri Purwodadi</span>
+          <span class="tipe tc">🟩 Campur</span>
+          <span class="bsm bbud">Budget</span>
+        </div>
+        <div class="card-sub">Jl. Sido Semi RT03/RW02, Dusun Kerajan, Desa Purwodadi, Kec. Purwodadi &nbsp;·&nbsp; 14 kamar &nbsp;·&nbsp; Bangunan baru &nbsp;·&nbsp; <strong>Lokasi paling relevan ke PKM Purwodadi</strong></div>
+      </div>
+      <div class="card-right"><span class="card-price">~Rp 500rb/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip cof">No AC</span><span class="chip con">✓ Free WiFi</span>
+        <span class="chip con">✓ KM Dalam</span>
+        <span class="chip con">✓ Parkir Motor (dalam, pavingan)</span>
+        <span class="chip con">✓ Parkir Mobil (8 unit!)</span>
+        <span class="chip con">✓ Security</span><span class="chip con">✓ Dapur</span>
+        <span class="chip con">✓ Mesin Cuci</span><span class="chip con">✓ Pembantu</span>
+        <span class="chip">🟩 Campur &nbsp;·&nbsp; 14 Kamar</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Alamat Lengkap</div><div class="ibv">Jl. Sido Semi RT03/RW02, Dusun Kerajan, Desa Purwodadi, Kec. Purwodadi, Kab. Pasuruan</div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🟩 <strong>Campur</strong> &nbsp;·&nbsp; Bebas sopan &nbsp;·&nbsp; 14 kamar</div></div>
+        <div class="ib"><div class="ibl">Bangunan</div><div class="ibv">Baru &nbsp;·&nbsp; Tembok tinggi &nbsp;·&nbsp; Atap cor (tidak panas)</div></div>
+        <div class="ib"><div class="ibl">AC / WiFi</div><div class="ibv">AC: ✗ Tidak &nbsp;·&nbsp; WiFi: ✓ Free WiFi</div></div>
+        <div class="ib"><div class="ibl">Kamar Mandi</div><div class="ibv">✓ Dalam kamar</div></div>
+        <div class="ib"><div class="ibl">Parkir Motor</div><div class="ibv">✓ Di dalam &nbsp;·&nbsp; Lantai pavingan &nbsp;·&nbsp; Luas</div></div>
+        <div class="ib"><div class="ibl">Parkir Mobil</div><div class="ibv">✓ <strong>Kapasitas 8 mobil</strong> — terluas di seluruh daftar ini</div></div>
+        <div class="ib"><div class="ibl">Keamanan</div><div class="ibv">Pagar tinggi &nbsp;·&nbsp; Security &nbsp;·&nbsp; CCTV</div></div>
+        <div class="ib"><div class="ibl">Fasilitas Lebih</div><div class="ibv">Pembantu, mesin cuci, dapur, ruang makan, air minum</div></div>
+        <div class="ib"><div class="ibl">Harga Pasti</div><div class="ibv">~Rp 500rb/bln (estimasi — konfirmasi ke pemilik)</div></div>
+      </div>
+      <div class="sl">Fasilitas Bersama Lengkap</div>
+      <div class="fpills">
+        <span class="fp">Ruang Tamu</span><span class="fp">Ruang Makan</span><span class="fp">Dapur</span>
+        <span class="fp">Air Minum Bersama</span><span class="fp">Cuci-Setrika</span><span class="fp">Mesin Cuci (cuci sendiri)</span>
+        <span class="fp">Pembantu Harian</span><span class="fp">Security</span>
+        <span class="fp">Parkir Motor (dalam)</span><span class="fp">Parkir Mobil 8 unit</span>
+        <span class="fp">Lantai 2 Jemur</span><span class="fp">Pagar Keamanan</span>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">Parkir mobil 8 unit — terluas di seluruh daftar 3 lokasi</div>
+          <div class="pmi">Bangunan baru, atap cor — tidak panas, awet</div>
+          <div class="pmi">Fasilitas bersama paling lengkap (dapur, pembantu, mesin cuci)</div>
+          <div class="pmi">Free WiFi + security + CCTV</div>
+          <div class="pmi">Lokasi paling dekat & relevan ke PKM Purwodadi</div>
+          <div class="pmi">14 kamar — stok biasanya tersedia</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi">Tidak ada AC — bisa panas musim kemarau</div>
+          <div class="pmi">Listing dari 2021 — wajib konfirmasi aktif tidaknya</div>
+          <div class="pmi">Harga pasti tidak tercantum di listing online</div>
+          <div class="pmi">Nomor kontak tidak dipublikasikan secara online</div>
+          <div class="pmi">Area Purwodadi — jauh dari pusat kota Pasuruan</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lgm" href="https://maps.google.com/?q=Jl+Sido+Semi+Desa+Purwodadi+Kecamatan+Purwodadi+Kabupaten+Pasuruan" target="_blank">📍 Google Maps</a>
+        <a class="lbtn lls" href="https://www.cbn-indonesia.com/yuk-kos-di-bella-asri-hadir-di-kecamatan-purwodadi-dengan-harga-cukup-bersahabat/" target="_blank">🔗 cbn-indonesia.com (sumber berita)</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">📞</span><span class="cl">Pemilik</span><span class="cv">Tidak dipublikasikan online</span><span class="cn">Bella Asri Purwodadi</span></div>
+        <div class="crow"><span class="ci">📍</span><span class="cl">Cara kontak</span><span class="cv">Datang ke Jl. Sido Semi RT03/RW02, Dusun Kerajan, atau tanya PKM Purwodadi</span></div>
+      </div>
+      <div class="note warn">⚠️ Sumber dari berita lokal cbn-indonesia.com (Okt 2021). Konfirmasi aktif tidaknya dengan datang langsung ke alamat atau via tanya staf PKM Purwodadi. Harga ~Rp 500rb adalah estimasi dari kos-kos serupa di kawasan Purwodadi.</div>
+      <div class="src">Sumber: <a href="https://www.cbn-indonesia.com/yuk-kos-di-bella-asri-hadir-di-kecamatan-purwodadi-dengan-harga-cukup-bersahabat/" target="_blank">cbn-indonesia.com/bella-asri</a> &nbsp;·&nbsp; Media lokal Pasuruan &nbsp;·&nbsp; Oktober 2021</div>
+    </div>
+  </div>
+
+  <!-- CARD 2 — Kos Asri Purwosari -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">2</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Kos Asri Belakang Pasar Purwosari</span>
+          <span class="tipe tc">🟩 Campur</span>
+          <span class="bsm bbud">Budget</span>
+        </div>
+        <div class="card-sub">Belakang Pasar Purwosari (dekat Masjid), Kec. Purwosari, Kab. Pasuruan &nbsp;·&nbsp; ⚠️ <strong>BUKAN Purwodadi</strong> — jarak ±7km ke PKM Purwodadi</div>
+      </div>
+      <div class="card-right"><span class="card-price">Rp 500–600rb/bln</span><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip cof">No AC</span><span class="chip cof">No WiFi</span>
+        <span class="chip con">✓ KM Dalam</span>
+        <span class="chip con">✓ Parkir Motor (dalam, pavingan)</span>
+        <span class="chip con">✓ Parkir Mobil (2 unit)</span>
+        <span class="chip">🟩 Campur &nbsp;·&nbsp; 8 Kamar</span>
+        <span class="chip">Bangunan Baru</span><span class="chip">Listrik Sebagian Gratis</span>
+      </div>
+      <div class="igrid">
+        <div class="ib"><div class="ibl">Alamat Lengkap</div><div class="ibv">Belakang Pasar Purwosari (dekat Masjid), Kec. Purwosari, Kab. Pasuruan<br><small style="color:#c97060">⚠️ Kec. Purwosari ≠ Kec. Purwodadi · jarak ke PKM Purwodadi ±7km</small></div></div>
+        <div class="ib"><div class="ibl">Tipe Hunian</div><div class="ibv">🟩 <strong>Campur</strong> &nbsp;·&nbsp; 8 kamar (sisa 6 saat listing)</div></div>
+        <div class="ib"><div class="ibl">Harga</div><div class="ibv">Rp 500rb (1 orang) &nbsp;/&nbsp; Rp 600rb (2 orang)</div></div>
+        <div class="ib"><div class="ibl">Bangunan</div><div class="ibv">Baru &nbsp;·&nbsp; Tembok tinggi &nbsp;·&nbsp; Atap cor (tidak panas)</div></div>
+        <div class="ib"><div class="ibl">Listrik</div><div class="ibv">Gratis s/d 10 meter (kwh) — kelebihan bayar sendiri</div></div>
+        <div class="ib"><div class="ibl">Parkir Motor</div><div class="ibv">✓ Di dalam &nbsp;·&nbsp; Pavingan &nbsp;·&nbsp; Luas</div></div>
+        <div class="ib"><div class="ibl">Parkir Mobil</div><div class="ibv">✓ Kapasitas 2 mobil</div></div>
+        <div class="ib"><div class="ibl">Kamar Mandi</div><div class="ibv">✓ Dalam kamar</div></div>
+        <div class="ib"><div class="ibl">Dapur</div><div class="ibv">✓ 2 dapur umum di pojok</div></div>
+        <div class="ib"><div class="ibl">Jemur</div><div class="ibv">✓ Lantai 2</div></div>
+      </div>
+      <div class="sl">Fasilitas</div>
+      <div class="fpills">
+        <span class="fp">Kamar Mandi Dalam</span><span class="fp">Dapur Umum (2 pojok)</span>
+        <span class="fp">Jemur Lantai 2</span><span class="fp">Pagar Keamanan</span>
+        <span class="fp">Parkir Motor (dalam)</span><span class="fp">Parkir Mobil (2 unit)</span>
+      </div>
+      <div class="pmg">
+        <div class="pmb pp">
+          <div class="pmt">➕ Kelebihan</div>
+          <div class="pmi">Bangunan baru — tidak panas (atap cor)</div>
+          <div class="pmi">Parkir motor dalam + 2 mobil tersedia</div>
+          <div class="pmi">Lingkungan gang perumahan — lebih tenang</div>
+          <div class="pmi">KM dalam, listrik sebagian gratis</div>
+          <div class="pmi">Nomor WA terdokumentasi — mudah dihubungi</div>
+        </div>
+        <div class="pmb pm">
+          <div class="pmt">➖ Kekurangan</div>
+          <div class="pmi"><strong>Bukan Purwodadi</strong> — ±7km ke PKM Purwodadi</div>
+          <div class="pmi">Tidak ada AC dan WiFi</div>
+          <div class="pmi">Hanya 8 kamar — stok terbatas</div>
+          <div class="pmi">Perlu kendaraan untuk ke PKM Purwodadi</div>
+        </div>
+      </div>
+      <div class="lrow">
+        <a class="lbtn lgm" href="https://maps.google.com/?q=Pasar+Purwosari+Kab+Pasuruan+Jawa+Timur" target="_blank">📍 Google Maps (Pasar Purwosari)</a>
+        <a class="lbtn lls" href="https://www.sewakost.com/kost-jawa-timur/kost-pasuruan/kos-asri-belakang-pasar-purwosari-pasuruan-19654.html" target="_blank">🔗 sewakost.com</a>
+        <a class="lbtn lwa" href="https://wa.me/6282141919519" target="_blank">💬 WA Pemilik</a>
+      </div>
+      <div class="cblk">
+        <div class="cblk-title">👤 Person In Charge (PIC)</div>
+        <div class="crow"><span class="ci">📞</span><span class="cl">WA / Call</span><span class="cv">0821-4191-9519</span><span class="cn">Pemilik Kos Asri Purwosari</span></div>
+      </div>
+      <div class="note danger">⚠️ Ini Kec. <strong>Purwosari</strong>, BUKAN Purwodadi. Jarak ±7km ke PKM Purwodadi. Cocok hanya jika tidak ada kost di Purwodadi atau jika commute tidak masalah.</div>
+      <div class="src">Sumber: <a href="https://www.sewakost.com/kost-jawa-timur/kost-pasuruan/kos-asri-belakang-pasar-purwosari-pasuruan-19654.html" target="_blank">sewakost.com #19654</a></div>
+    </div>
+  </div>
+
+  <!-- CARD INFO — Tips Purwodadi -->
+  <div class="card" onclick="tc(this)">
+    <div class="card-hdr">
+      <div class="card-num">ℹ</div>
+      <div class="card-ta">
+        <div class="card-nr">
+          <span class="card-name">Tips: Strategi Cari Kost di Purwodadi</span>
+        </div>
+        <div class="card-sub">Kenapa listing sangat sedikit & cara paling efektif menemukan kost</div>
+      </div>
+      <div class="card-right"><span class="chevron">▼</span></div>
+    </div>
+    <div class="card-body">
+      <div class="ptips">
+        <p style="margin-bottom:12px;">Kecamatan Purwodadi, Kab. Pasuruan adalah kawasan pertanian & perkebunan (berbatasan langsung dengan Kebun Raya Purwodadi LIPI/BRIN). Permintaan kost online sangat rendah dibanding Pandaan atau Bangil — hampir tidak ada listing aktif di Mamikos, sewakost, atau 99.co. Ini kondisi riil, bukan kekurangan data.</p>
+        <p style="margin-bottom:8px;"><strong>Strategi offline (lebih efektif):</strong></p>
+        <ol>
+          <li><strong>Tanya staf / dokter / bidan PKM Purwodadi langsung</strong> — biasanya tahu warga yang terima kost nakes/tenaga kesehatan</li>
+          <li><strong>Tanya Kepala Desa / RT sekitar PKM</strong> — bisa referensikan langsung ke pemilik kost</li>
+          <li><strong>Tanya pengelola Kebun Raya Purwodadi</strong> — ada hunian untuk tamu peneliti yang kadang bisa sewa</li>
+          <li><strong>Facebook Group Lokal</strong>: "Info Kost Pasuruan Kabupaten" atau "Jual Beli Pasuruan Kabupaten"</li>
+          <li><strong>Facebook Marketplace Pasuruan</strong>: search "kost Purwodadi" atau "sewa kamar Purwodadi"</li>
+          <li><strong>Google Maps</strong>: ketik "kost" atau "indekos" atau "sewa kamar" di area Purwodadi Pasuruan</li>
+        </ol>
+        <p style="margin-top:12px;"><strong>Platform digital yang perlu dicek rutin:</strong><br>sewakost.com &nbsp;·&nbsp; mamikos.com &nbsp;·&nbsp; OLX Pasuruan &nbsp;·&nbsp; Facebook Marketplace &nbsp;·&nbsp; 99.co (filter Kab. Pasuruan → Purwodadi)</p>
+      </div>
+    </div>
+  </div>
+</div><!-- end tab purwodadi -->
+
+<script>
+  function sw(btn, id) {
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
+    btn.classList.add('on');
+    document.getElementById(id).classList.add('on');
+  }
+  function tc(card) { card.classList.toggle('open'); }
+</script>
+</body>
+</html>
